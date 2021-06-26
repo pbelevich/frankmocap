@@ -65,7 +65,10 @@ class Visualizer(object):
         for mesh in pred_mesh_list:
             verts = mesh['vertices']
             faces = mesh['faces']
-            rend_img = self.renderer.render(verts, faces, rend_img)
+            ft = mesh['ft']
+            vt = mesh['vt']
+            t = mesh['t']
+            rend_img = self.renderer.render(verts, faces, rend_img, ft, vt, t)
 
         res_img = rend_img[:h, :w, :]
         return res_img
